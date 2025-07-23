@@ -1,0 +1,111 @@
+/* Snake Game - Modern Light Minimal UI */
+
+/* Color variables (light theme) */
+:root {
+  --primary: #228b22;
+  --accent: #ffd700;
+  --secondary: #000;
+  --board-bg: #fafafa;
+  --cell-border: #f0f0f0;
+  --snake-head: linear-gradient(135deg, #ffd700, #228b22);
+  --snake-body: #228b22;
+  --food: #ffd700;
+  --text-main: #222;
+  --score-shadow: 0 2px 8px rgba(34,139,34,0.09);
+}
+
+/* Main outer container */
+.snake-app-outer {
+  background: #fff;
+}
+
+/* Score & panel styles */
+.score-speed-panel {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.score-speed-panel button[disabled] {
+  cursor: default;
+  opacity: 1;
+}
+
+/* Game board grid */
+.game-board {
+  position: relative;
+  margin: 0 auto;
+  background: var(--board-bg);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1.5px 0 var(--primary);
+  border-radius: 20px;
+  outline: none;
+}
+
+.cell {
+  box-sizing: border-box;
+  margin: 0;
+  border-radius: 6px;
+  will-change: background;
+  transition: background 0.15s;
+}
+
+.cell.snake-head {
+  background: var(--snake-head) !important;
+}
+.cell.snake-body {
+  background: var(--snake-body) !important;
+}
+.cell.food {
+  background: var(--food) !important;
+  border-radius: 50% !important;
+  border: 1.5px solid #e3d242 !important;
+  box-shadow: 0 2px 7px #ffe17855;
+}
+
+/* Overlay for game over */
+.game-over-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  background: rgba(255,255,255,0.95);
+  border-radius: 18px;
+  z-index: 4;
+  box-shadow: 0 0 0 3px #ffd70044, 0 2px 8px #228b2222;
+}
+
+/* Controls panel */
+.speed-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.speed-selector button {
+  font-family: inherit;
+}
+
+@media (max-width: 900px) {
+  .game-board {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.11);
+    border-radius: 13px;
+  }
+  .score-speed-panel {
+    margin-bottom: 12px;
+  }
+}
+
+/* Responsive cell sizing */
+@media (max-width: 520px) {
+  .score-speed-panel {
+    font-size: 14px;
+  }
+}
+
+/* Rest (typography & info) */
+.snake-app-outer {
+  font-family: 'Inter', 'Segoe UI', 'Arial', sans-serif;
+  color: var(--text-main);
+}
